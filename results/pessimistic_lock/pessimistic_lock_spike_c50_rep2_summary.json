@@ -1,0 +1,288 @@
+{
+  "run_tag": "pessimistic_lock_spike_c50_rep2",
+  "strategy": "pessimistic_lock",
+  "profile": "spike",
+  "concurrency": 50,
+  "repetition": 2,
+  "duration_seconds": 15,
+  "started_at": 1787510416.911547,
+  "completed_at": 1787510432.8628254,
+  "locust_success": true,
+  "consistency_passed": true,
+  "violations_count": 0,
+  "metrics": {
+    "total_requests": 4481,
+    "successful_requests": 2015,
+    "failed_requests": 2466,
+    "failure_rate": 55.03,
+    "requests_per_second": 320.59,
+    "avg_latency_ms": 132.25,
+    "p50_latency_ms": 120.0,
+    "p95_latency_ms": 210.0,
+    "p99_latency_ms": 250.0,
+    "min_latency_ms": 50.62,
+    "max_latency_ms": 418.13,
+    "endpoints": [
+      {
+        "name": "/items [GET]",
+        "method": "GET",
+        "requests": 1379,
+        "failures": 0,
+        "rps": 98.66,
+        "avg_ms": 127.81,
+        "p50_ms": 120.0,
+        "p95_ms": 200.0,
+        "p99_ms": 240.0
+      },
+      {
+        "name": "/items/:id [GET]",
+        "method": "GET",
+        "requests": 1207,
+        "failures": 1068,
+        "rps": 86.35,
+        "avg_ms": 127.84,
+        "p50_ms": 120.0,
+        "p95_ms": 190.0,
+        "p99_ms": 230.0
+      },
+      {
+        "name": "/items/:id/reserve [POST]",
+        "method": "POST",
+        "requests": 1540,
+        "failures": 1394,
+        "rps": 110.18,
+        "avg_ms": 137.6,
+        "p50_ms": 130.0,
+        "p95_ms": 220.0,
+        "p99_ms": 310.0
+      },
+      {
+        "name": "/metrics/consistency [GET]",
+        "method": "GET",
+        "requests": 212,
+        "failures": 3,
+        "rps": 15.17,
+        "avg_ms": 146.42,
+        "p50_ms": 140.0,
+        "p95_ms": 230.0,
+        "p99_ms": 260.0
+      },
+      {
+        "name": "/reservations/:id/release [POST]",
+        "method": "POST",
+        "requests": 143,
+        "failures": 1,
+        "rps": 10.23,
+        "avg_ms": 133.72,
+        "p50_ms": 120.0,
+        "p95_ms": 230.0,
+        "p99_ms": 290.0
+      }
+    ],
+    "failures": [
+      {
+        "method": "POST",
+        "name": "/reservations/:id/release [POST]",
+        "error": "CatchResponseError('Release failed: ')",
+        "occurrences": 1
+      },
+      {
+        "method": "GET",
+        "name": "/metrics/consistency [GET]",
+        "error": "CatchResponseError(\"Consistency violation detected during run: ['Reconciliation failure for Item 1 (SKU-CORRUPT-1): initial (100) - active_reserved (0) = 100, but available_quantity is 80 (discrepancy: -20).']\")",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 8 not found.\"}')",
+        "occurrences": 74
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 6 not found.\"}')",
+        "occurrences": 60
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 11 not found.\"}')",
+        "occurrences": 72
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 16 not found.\"}')",
+        "occurrences": 72
+      },
+      {
+        "method": "GET",
+        "name": "/items/:id [GET]",
+        "error": "HTTPError('404 Client Error: Not Found for url: /items/:id [GET]')",
+        "occurrences": 1068
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u2658859098640-48e4555663ac407c\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 12 not found.\"}')",
+        "occurrences": 61
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 1 not found.\"}')",
+        "occurrences": 66
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u2658860080912-9ce46aa835af4307\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 3 not found.\"}')",
+        "occurrences": 54
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 20 not found.\"}')",
+        "occurrences": 80
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 18 not found.\"}')",
+        "occurrences": 86
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 13 not found.\"}')",
+        "occurrences": 67
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 14 not found.\"}')",
+        "occurrences": 68
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u2658859098256-f2ad17598f4f4125\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"INSUFFICIENT_INVENTORY\",\"message\":\"Insufficient inventory for item 1: requested 3, available 0.\",\"item_id\":1,\"requested\":3,\"available\":0}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 17 not found.\"}')",
+        "occurrences": 69
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u2658858768080-d99fb77f986d405c\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"INSUFFICIENT_INVENTORY\",\"message\":\"Insufficient inventory for item 2: requested 2, available 0.\",\"item_id\":2,\"requested\":2,\"available\":0}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 9 not found.\"}')",
+        "occurrences": 74
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 4 not found.\"}')",
+        "occurrences": 74
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 0: ')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 2 not found.\"}')",
+        "occurrences": 61
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 500: {\"error_code\":\"INTERNAL_SERVER_ERROR\",\"message\":\"An unexpected error occurred while processing the request.\"}')",
+        "occurrences": 5
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 5 not found.\"}')",
+        "occurrences": 59
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 19 not found.\"}')",
+        "occurrences": 66
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"INSUFFICIENT_INVENTORY\",\"message\":\"Insufficient inventory for item 1: requested 1, available 0.\",\"item_id\":1,\"requested\":1,\"available\":0}')",
+        "occurrences": 2
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 15 not found.\"}')",
+        "occurrences": 67
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 7 not found.\"}')",
+        "occurrences": 81
+      },
+      {
+        "method": "GET",
+        "name": "/metrics/consistency [GET]",
+        "error": "CatchResponseError(\"Consistency violation detected during run: ['Item 1 (SKU-NEGATIVE-1) has negative available quantity: -5.', 'Reconciliation failure for Item 1 (SKU-NEGATIVE-1): initial (50) - active_reserved (0) = 50, but available_quantity is -5 (discrepancy: -55).']\")",
+        "occurrences": 2
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Server error HTTP 404: {\"error_code\":\"ITEM_NOT_FOUND\",\"message\":\"Item with ID 10 not found.\"}')",
+        "occurrences": 69
+      }
+    ]
+  },
+  "post_check": {
+    "active_reservations": 0,
+    "released_reservations": 0,
+    "violations": []
+  }
+}

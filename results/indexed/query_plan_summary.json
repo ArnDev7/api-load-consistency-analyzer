@@ -1,0 +1,26 @@
+[
+  {
+    "query": "active_reservations_by_item",
+    "unindexed_node_type": "Bitmap Heap Scan",
+    "indexed_node_type": "Bitmap Heap Scan",
+    "unindexed_cost": 153.23,
+    "indexed_cost": 146.93,
+    "unindexed_exec_time_ms": 0.161,
+    "indexed_exec_time_ms": 0.157,
+    "speedup_percentage": 2.48,
+    "baseline_plan_file": "query_plan_active_reservations_by_item_unindexed.json",
+    "indexed_plan_file": "query_plan_active_reservations_by_item_indexed.json"
+  },
+  {
+    "query": "sku_lookup",
+    "unindexed_node_type": "Index Scan",
+    "indexed_node_type": "Seq Scan",
+    "unindexed_cost": 8.17,
+    "indexed_cost": 3.25,
+    "unindexed_exec_time_ms": 0.019,
+    "indexed_exec_time_ms": 0.02,
+    "speedup_percentage": -5.26,
+    "baseline_plan_file": "query_plan_sku_lookup_unindexed.json",
+    "indexed_plan_file": "query_plan_sku_lookup_indexed.json"
+  }
+]

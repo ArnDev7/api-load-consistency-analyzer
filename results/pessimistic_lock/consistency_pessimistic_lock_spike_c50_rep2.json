@@ -1,0 +1,11 @@
+{
+  "consistent": true,
+  "total_items": 0,
+  "total_reservations": 0,
+  "active_reservations": 0,
+  "released_reservations": 0,
+  "violations_count": 0,
+  "violations": [],
+  "details": [],
+  "timestamp": "2026-08-23T18:40:32.882375+00:00"
+}

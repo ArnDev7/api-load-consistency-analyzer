@@ -1,0 +1,144 @@
+{
+  "run_tag": "pessimistic_lock_write_heavy_c20_rep1",
+  "strategy": "pessimistic_lock",
+  "profile": "write_heavy",
+  "concurrency": 20,
+  "repetition": 1,
+  "duration_seconds": 5,
+  "started_at": 1787511594.2113497,
+  "completed_at": 1787511600.9405503,
+  "locust_success": true,
+  "consistency_passed": true,
+  "violations_count": 0,
+  "metrics": {
+    "total_requests": 1222,
+    "successful_requests": 1213,
+    "failed_requests": 9,
+    "failure_rate": 0.74,
+    "requests_per_second": 304.91,
+    "avg_latency_ms": 41.25,
+    "p50_latency_ms": 42.0,
+    "p95_latency_ms": 71.0,
+    "p99_latency_ms": 91.0,
+    "min_latency_ms": 3.96,
+    "max_latency_ms": 110.63,
+    "endpoints": [
+      {
+        "name": "/items [GET]",
+        "method": "GET",
+        "requests": 326,
+        "failures": 0,
+        "rps": 81.34,
+        "avg_ms": 35.94,
+        "p50_ms": 40.0,
+        "p95_ms": 57.0,
+        "p99_ms": 68.0
+      },
+      {
+        "name": "/items/:id [GET]",
+        "method": "GET",
+        "requests": 351,
+        "failures": 0,
+        "rps": 87.58,
+        "avg_ms": 32.19,
+        "p50_ms": 36.0,
+        "p95_ms": 53.0,
+        "p99_ms": 69.0
+      },
+      {
+        "name": "/items/:id/reserve [POST]",
+        "method": "POST",
+        "requests": 389,
+        "failures": 9,
+        "rps": 97.06,
+        "avg_ms": 50.03,
+        "p50_ms": 54.0,
+        "p95_ms": 78.0,
+        "p99_ms": 96.0
+      },
+      {
+        "name": "/metrics/consistency [GET]",
+        "method": "GET",
+        "requests": 53,
+        "failures": 0,
+        "rps": 13.22,
+        "avg_ms": 45.5,
+        "p50_ms": 50.0,
+        "p95_ms": 73.0,
+        "p99_ms": 82.0
+      },
+      {
+        "name": "/reservations/:id/release [POST]",
+        "method": "POST",
+        "requests": 103,
+        "failures": 0,
+        "rps": 25.7,
+        "avg_ms": 53.58,
+        "p50_ms": 55.0,
+        "p95_ms": 90.0,
+        "p99_ms": 94.0
+      }
+    ],
+    "failures": [
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782005322896-1aa68cabde79475a\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782005308048-99401ca357654058\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782006953360-9d95f18db9e14d4a\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782005015824-c0bd028185e84fbd\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782005308048-50e83dee063f4102\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782006954320-0bdc04fd27214035\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782006953936-478ca90c3f9241d2\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782005307088-62b9f070266e4a5b\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      },
+      {
+        "method": "POST",
+        "name": "/items/:id/reserve [POST]",
+        "error": "CatchResponseError('Conflict error: {\"error_code\":\"IDEMPOTENCY_CONFLICT\",\"message\":\"Duplicate idempotency key \\'u1782005489712-a344419cde614e41\\' used with conflicting reservation parameters.\"}')",
+        "occurrences": 1
+      }
+    ]
+  },
+  "post_check": {
+    "active_reservations": 319,
+    "released_reservations": 123,
+    "violations": []
+  }
+}

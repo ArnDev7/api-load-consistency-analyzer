@@ -1,0 +1,3 @@
+item_id,sku,initial_quantity,available_quantity,active_reserved_quantity,released_reserved_quantity,reconciled_quantity,is_consistent,violations
+1,SKU-TEST-001,100,90,10,0,90,True,[]
+2,SKU-IDEMP-CONCUR,100,94,6,0,94,True,[]

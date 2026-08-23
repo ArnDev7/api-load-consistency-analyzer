@@ -1,0 +1,34 @@
+{
+  "consistent": true,
+  "total_items": 2,
+  "total_reservations": 3,
+  "active_reservations": 3,
+  "released_reservations": 0,
+  "violations_count": 0,
+  "violations": [],
+  "details": [
+    {
+      "item_id": 1,
+      "sku": "SKU-TEST-001",
+      "initial_quantity": 100,
+      "available_quantity": 90,
+      "active_reserved_quantity": 10,
+      "released_reserved_quantity": 0,
+      "reconciled_quantity": 90,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 2,
+      "sku": "SKU-IDEMP-CONCUR",
+      "initial_quantity": 100,
+      "available_quantity": 94,
+      "active_reserved_quantity": 6,
+      "released_reserved_quantity": 0,
+      "reconciled_quantity": 94,
+      "is_consistent": true,
+      "violations": []
+    }
+  ],
+  "timestamp": "2026-08-23T18:28:50.247437+00:00"
+}

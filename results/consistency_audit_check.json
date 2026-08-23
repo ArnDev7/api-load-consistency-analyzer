@@ -1,0 +1,232 @@
+{
+  "consistent": true,
+  "total_items": 20,
+  "total_reservations": 458,
+  "active_reservations": 326,
+  "released_reservations": 132,
+  "violations_count": 0,
+  "violations": [],
+  "details": [
+    {
+      "item_id": 1,
+      "sku": "SKU-BENCH-0001",
+      "initial_quantity": 200,
+      "available_quantity": 164,
+      "active_reserved_quantity": 36,
+      "released_reserved_quantity": 14,
+      "reconciled_quantity": 164,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 2,
+      "sku": "SKU-BENCH-0002",
+      "initial_quantity": 200,
+      "available_quantity": 184,
+      "active_reserved_quantity": 16,
+      "released_reserved_quantity": 9,
+      "reconciled_quantity": 184,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 3,
+      "sku": "SKU-BENCH-0003",
+      "initial_quantity": 200,
+      "available_quantity": 153,
+      "active_reserved_quantity": 47,
+      "released_reserved_quantity": 17,
+      "reconciled_quantity": 153,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 4,
+      "sku": "SKU-BENCH-0004",
+      "initial_quantity": 200,
+      "available_quantity": 155,
+      "active_reserved_quantity": 45,
+      "released_reserved_quantity": 15,
+      "reconciled_quantity": 155,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 5,
+      "sku": "SKU-BENCH-0005",
+      "initial_quantity": 200,
+      "available_quantity": 164,
+      "active_reserved_quantity": 36,
+      "released_reserved_quantity": 24,
+      "reconciled_quantity": 164,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 6,
+      "sku": "SKU-BENCH-0006",
+      "initial_quantity": 200,
+      "available_quantity": 173,
+      "active_reserved_quantity": 27,
+      "released_reserved_quantity": 13,
+      "reconciled_quantity": 173,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 7,
+      "sku": "SKU-BENCH-0007",
+      "initial_quantity": 200,
+      "available_quantity": 170,
+      "active_reserved_quantity": 30,
+      "released_reserved_quantity": 12,
+      "reconciled_quantity": 170,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 8,
+      "sku": "SKU-BENCH-0008",
+      "initial_quantity": 200,
+      "available_quantity": 159,
+      "active_reserved_quantity": 41,
+      "released_reserved_quantity": 17,
+      "reconciled_quantity": 159,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 9,
+      "sku": "SKU-BENCH-0009",
+      "initial_quantity": 200,
+      "available_quantity": 183,
+      "active_reserved_quantity": 17,
+      "released_reserved_quantity": 12,
+      "reconciled_quantity": 183,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 10,
+      "sku": "SKU-BENCH-0010",
+      "initial_quantity": 200,
+      "available_quantity": 178,
+      "active_reserved_quantity": 22,
+      "released_reserved_quantity": 17,
+      "reconciled_quantity": 178,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 11,
+      "sku": "SKU-BENCH-0011",
+      "initial_quantity": 200,
+      "available_quantity": 169,
+      "active_reserved_quantity": 31,
+      "released_reserved_quantity": 10,
+      "reconciled_quantity": 169,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 12,
+      "sku": "SKU-BENCH-0012",
+      "initial_quantity": 200,
+      "available_quantity": 161,
+      "active_reserved_quantity": 39,
+      "released_reserved_quantity": 13,
+      "reconciled_quantity": 161,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 13,
+      "sku": "SKU-BENCH-0013",
+      "initial_quantity": 200,
+      "available_quantity": 156,
+      "active_reserved_quantity": 44,
+      "released_reserved_quantity": 10,
+      "reconciled_quantity": 156,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 14,
+      "sku": "SKU-BENCH-0014",
+      "initial_quantity": 200,
+      "available_quantity": 164,
+      "active_reserved_quantity": 36,
+      "released_reserved_quantity": 10,
+      "reconciled_quantity": 164,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 15,
+      "sku": "SKU-BENCH-0015",
+      "initial_quantity": 200,
+      "available_quantity": 169,
+      "active_reserved_quantity": 31,
+      "released_reserved_quantity": 2,
+      "reconciled_quantity": 169,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 16,
+      "sku": "SKU-BENCH-0016",
+      "initial_quantity": 200,
+      "available_quantity": 170,
+      "active_reserved_quantity": 30,
+      "released_reserved_quantity": 15,
+      "reconciled_quantity": 170,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 17,
+      "sku": "SKU-BENCH-0017",
+      "initial_quantity": 200,
+      "available_quantity": 159,
+      "active_reserved_quantity": 41,
+      "released_reserved_quantity": 15,
+      "reconciled_quantity": 159,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 18,
+      "sku": "SKU-BENCH-0018",
+      "initial_quantity": 200,
+      "available_quantity": 167,
+      "active_reserved_quantity": 33,
+      "released_reserved_quantity": 16,
+      "reconciled_quantity": 167,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 19,
+      "sku": "SKU-BENCH-0019",
+      "initial_quantity": 200,
+      "available_quantity": 179,
+      "active_reserved_quantity": 21,
+      "released_reserved_quantity": 12,
+      "reconciled_quantity": 179,
+      "is_consistent": true,
+      "violations": []
+    },
+    {
+      "item_id": 20,
+      "sku": "SKU-BENCH-0020",
+      "initial_quantity": 200,
+      "available_quantity": 150,
+      "active_reserved_quantity": 50,
+      "released_reserved_quantity": 13,
+      "reconciled_quantity": 150,
+      "is_consistent": true,
+      "violations": []
+    }
+  ],
+  "timestamp": "2026-08-23T19:02:24.334878+00:00"
+}

@@ -1,0 +1,51 @@
+# Experiment Matrix Configuration
+target_host: "http://127.0.0.1:8000"
+repetitions: 2
+default_duration_seconds: 15
+default_spawn_rate: 20
+default_item_count: 20
+default_initial_inventory: 200
+
+# Matrix Dimensions
+concurrency_levels:
+  - 5
+  - 20
+  - 50
+  - 100
+
+workload_profiles:
+  - mixed
+  - read_heavy
+  - write_heavy
+  - spike
+
+concurrency_strategies:
+  - atomic_update
+  - pessimistic_lock
+
+pool_configurations:
+  - name: "constrained_pool"
+    pool_size: 5
+    max_overflow: 0
+    pool_timeout: 10.0
+  - name: "standard_pool"
+    pool_size: 10
+    max_overflow: 20
+    pool_timeout: 30.0
+  - name: "high_concurrency_pool"
+    pool_size: 25
+    max_overflow: 50
+    pool_timeout: 30.0
+
+index_scenarios:
+  - name: "baseline"
+    indexes: false
+  - name: "indexed"
+    indexes: true
+
+smoke_test:
+  concurrency_levels: [5, 20]
+  workload_profiles: ["mixed", "write_heavy"]
+  strategies: ["atomic_update", "pessimistic_lock"]
+  duration_seconds: 5
+  repetitions: 1
