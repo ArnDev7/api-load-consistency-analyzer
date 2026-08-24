@@ -361,7 +361,29 @@ python -m analysis.generate_report
 
 ---
 
-## Analysis Pipeline & Generated Deliverables
+## Interactive Streamlit Dashboard
+
+A comprehensive web dashboard is included in the `dashboard/` package to view benchmark results, inspect query plans, audit relational consistency, and interact with the live API.
+
+### Launching the Dashboard
+```bash
+streamlit run dashboard/streamlit_app.py
+```
+*(Or via python executable: `.venv\Scripts\python.exe -m streamlit run dashboard/streamlit_app.py`)*
+
+The dashboard will open in your browser at `http://localhost:8501`.
+
+### Dashboard Pages Overview
+- **Landing / Home**: High-level system overview, global metrics cards, and architectural flow.
+- **1. System Overview (`1_System_Overview.py`)**: Component health checks, domain models, and strategy definitions.
+- **2. Live API Demo (`2_Live_API_Demo.py`)**: Interactive UI to create items, test atomic reservations, replay idempotency keys, release reservations, and run live consistency checks.
+- **3. Experiment Runner (`3_Experiment_Runner.py`)**: Web-based configuration and launcher for headless Locust benchmark scenarios.
+- **4. Performance Results (`4_Performance_Results.py`)**: Multi-dimensional filterable performance viewer with interactive Plotly charts for p50/p95/p99 latency, throughput, and CSV data export.
+- **5. Consistency Analysis (`5_Consistency_Analysis.py`)**: Zero-tolerance invariant matrix verifying inventory conservation equations.
+- **6. Strategy Comparison (`6_Strategy_Comparison.py`)**: Side-by-side empirical performance comparison of Atomic Updates vs `SELECT FOR UPDATE`.
+- **7. Database Optimization (`7_Database_Optimization.py`)**: PostgreSQL `EXPLAIN ANALYZE` query plans and connection pool sizing benchmarks.
+- **8. Methodology & Limitations (`8_Methodology_and_Limitations.py`)**: Detailed analytical breakdown, engineering boundaries, and hardware disclosures.
+
 
 The analysis pipeline generates all required artifacts in `reports/`:
 
