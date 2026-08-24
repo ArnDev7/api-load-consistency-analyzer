@@ -64,7 +64,7 @@ with col_cfg2:
     """)
 
     st.markdown("#### Equivalent Terminal Command")
-    cmd_example = f"python -m experiments.run_experiments --profiles {profile} --strategies {strategy} --users {users} --duration {duration} --reps {repetitions} --output-dir results --tag {tag}"
+    cmd_example = f"locust -f load_tests/locustfile.py --headless -u {users} -r 10 -t {duration}s --host http://127.0.0.1:8000 --csv results/{strategy}/{tag}"
     st.code(cmd_example, language="bash")
 
 st.markdown("---")
@@ -74,41 +74,39 @@ st.subheader("🚀 Launch Benchmark Run")
 confirm_launch = st.checkbox("I confirm FastAPI server is running on localhost:8000 and database is ready.")
 
 if st.button("▶️ Execute Benchmark Now", disabled=not confirm_launch, type="primary"):
-    python_exe = sys.executable
-    cmd = [
-        python_exe,
-        "-m", "experiments.run_experiments",
-        "--profiles", profile,
-        "--strategies", strategy,
-        "--users", str(users),
-        "--duration", str(duration),
-        "--reps", str(repetitions),
-        "--output-dir", "results",
-        "--tag", tag,
-    ]
+    from experiments.run_experiments import run_locust_headless
+    from experiments.consistency_checks import run_consistency_audit
 
-    st.info(f"Running benchmark: `{' '.join(cmd)}`")
+    out_dir = paths.RESULTS_DIR / strategy
+    out_dir.mkdir(parents=True, exist_ok=True)
+    csv_prefix = out_dir / tag
+
+    st.info(f"Running benchmark with {users} users, profile={profile}, strategy={strategy} for {duration}s...")
     
-    with st.spinner("Executing load workload and consistency audit..."):
-        try:
-            process = subprocess.run(
-                cmd,
-                cwd=str(paths.ROOT_DIR),
-                capture_output=True,
-                text=True,
-                timeout=duration * repetitions + 45,
-            )
+    with st.spinner("Executing load workload..."):
+        success = run_locust_headless(
+            host="http://127.0.0.1:8000",
+            users=users,
+            spawn_rate=min(users, 10),
+            duration_seconds=duration,
+            csv_prefix=csv_prefix,
+            profile=profile,
+            strategy=strategy,
+            item_count=20,
+        )
+        
+        if success:
+            st.success("✅ Locust workload completed!")
+            with st.spinner("Auditing post-workload database consistency..."):
+                audit_result = run_consistency_audit(output_dir=out_dir, tag=tag)
             
-            if process.returncode == 0:
-                st.success("✅ Benchmark execution & invariant audit completed successfully!")
-                with st.expander("Show Execution Logs"):
-                    st.text(process.stdout)
-                st.markdown("➡️ View your results in **[4. Performance Results](4_Performance_Results)**.")
+            if audit_result.get("consistent"):
+                st.success("✅ Consistency audit: 100% Passed (0 Invariant Violations)")
             else:
-                st.error("❌ Benchmark execution encountered an error.")
-                st.text(process.stderr or process.stdout)
-        except subprocess.TimeoutExpired:
-            st.error("❌ Process timed out. For long benchmarks, run via CLI:")
-            st.code(cmd_example)
-        except Exception as e:
-            st.error(f"❌ Execution failed: {e}")
+                st.error(f"❌ Consistency audit failed: {audit_result.get('violations_count')} violations")
+                
+            st.json(audit_result)
+            st.markdown("➡️ View your results in **[4. Performance Results](4_Performance_Results)**.")
+        else:
+            st.error("❌ Locust workload execution failed. Verify that FastAPI is running on port 8000.")
+
